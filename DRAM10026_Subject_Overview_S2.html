@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRAM10026 — Subject Overview</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f0eb;
+    --warm-white: #faf7f2;
+    --cream: #e8e0d4;
+    --mtc-blue: #1a2a4a;
+    --mtc-gold: #c8a45c;
+    --mtc-copper: #b87333;
+    --stage-red: #8b2500;
+    --muted-sage: #7a8b6f;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-light: #888;
+    --divider: #d4cdc4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--text-primary);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200, 164, 92, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--mtc-blue);
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--mtc-copper);
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-secondary);
+    max-width: 550px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.7s forwards;
+  }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 4rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    color: var(--mtc-blue);
+    margin-bottom: 2rem;
+    line-height: 1.15;
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--mtc-copper);
+    margin-bottom: 2rem;
+  }
+
+  .full-divider {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    height: 1px;
+    background: var(--divider);
+  }
+
+  /* ─── BODY TEXT ─── */
+  .body-text {
+    max-width: 680px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-primary);
+  }
+
+  .body-text p {
+    margin-bottom: 1.5rem;
+  }
+
+  .body-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlight {
+    background: linear-gradient(to top, rgba(200, 164, 92, 0.15) 40%, transparent 40%);
+    padding: 0 2px;
+  }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    margin-top: 2.5rem;
+    padding: 1.8rem 2rem;
+    background: var(--mtc-blue);
+    color: var(--paper);
+    max-width: 680px;
+  }
+
+  .callout-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mtc-gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .callout-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(245, 240, 235, 0.85);
+  }
+
+  /* ─── ILOs ─── */
+  .ilos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    max-width: 680px;
+    margin-top: 2rem;
+  }
+
+  .ilo-item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .ilo-item:first-child {
+    border-top: 1px solid var(--divider);
+  }
+
+  .ilo-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(26, 42, 74, 0.1);
+    line-height: 1;
+  }
+
+  .ilo-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    padding-top: 0.3rem;
+  }
+
+  /* ─── ASSESSMENT CARDS ─── */
+  .assessment-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 2rem;
+    max-width: 680px;
+  }
+
+  .assessment-card {
+    border-bottom: 1px solid var(--divider);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .assessment-card:first-child {
+    border-top: 1px solid var(--divider);
+  }
+
+  .assessment-card:hover {
+    background: rgba(200, 164, 92, 0.04);
+  }
+
+  .assessment-header {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 2rem;
+    padding: 2rem 0.5rem 2rem 0;
+    align-items: center;
+  }
+
+  .assessment-weight-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .assessment-weight {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--mtc-blue);
+    line-height: 1;
+    transition: color 0.3s;
+  }
+
+  .assessment-card.active .assessment-weight {
+    color: var(--mtc-copper);
+  }
+
+  .assessment-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .assessment-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--mtc-blue);
+    transition: color 0.3s;
+  }
+
+  .assessment-card.active .assessment-name {
+    color: var(--mtc-copper);
+  }
+
+  .assessment-timing {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .assessment-timing::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 1px;
+    background: var(--mtc-copper);
+  }
+
+  .assessment-toggle {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--divider);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .assessment-toggle::before,
+  .assessment-toggle::after {
+    content: '';
+    position: absolute;
+    background: var(--mtc-blue);
+    transition: all 0.4s ease;
+  }
+
+  .assessment-toggle::before {
+    width: 10px;
+    height: 1.5px;
+  }
+
+  .assessment-toggle::after {
+    width: 1.5px;
+    height: 10px;
+  }
+
+  .assessment-card.active .assessment-toggle {
+    border-color: var(--mtc-copper);
+    transform: rotate(45deg);
+  }
+
+  .assessment-card.active .assessment-toggle::before,
+  .assessment-card.active .assessment-toggle::after {
+    background: var(--mtc-copper);
+  }
+
+  .assessment-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 0 0 calc(80px + 2rem);
+  }
+
+  .assessment-card.active .assessment-body {
+    max-height: 600px;
+    padding: 0 0 2.5rem calc(80px + 2rem);
+  }
+
+  .assessment-body-inner {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease 0.1s;
+  }
+
+  .assessment-card.active .assessment-body-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .assessment-desc {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 560px;
+  }
+
+  .assessment-desc p {
+    margin-bottom: 1rem;
+  }
+
+  .assessment-desc p:last-child {
+    margin-bottom: 0;
+  }
+
+  .assessment-note {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--warm-white);
+    border-left: 2px solid var(--mtc-gold);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  .assessment-hint {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 2rem;
+    max-width: 680px;
+  }
+
+  /* ─── TIMETABLE ─── */
+  .timetable-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 680px;
+  }
+
+  .timetable-item {
+    padding: 1.5rem 0;
+  }
+
+  .timetable-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 0.6rem;
+  }
+
+  .timetable-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .timetable-detail {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid var(--divider);
+    margin-top: 2rem;
+  }
+
+  footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { padding: 4rem 1.5rem 3rem; min-height: 40vh; }
+    section { padding: 3rem 1.5rem; }
+
+    .ilo-item {
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+    }
+
+    .assessment-header {
+      grid-template-columns: 60px 1fr auto;
+      gap: 1rem;
+      padding: 1.5rem 0;
+    }
+
+    .assessment-weight { font-size: 1.8rem; }
+    .assessment-name { font-size: 1.1rem; }
+
+    .assessment-body,
+    .assessment-card.active .assessment-body {
+      padding-left: calc(60px + 1rem);
+    }
+
+    .timetable-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .timetable-item {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .callout { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<header class="hero">
+  <div class="hero-label">DRAM10026 · University of Melbourne · Semester 2, 2026</div>
+  <h1 class="hero-title">Subject <em>Overview</em></h1>
+  <p class="hero-subtitle">Everything you need to know about how this subject works, what you will do, and how you will be assessed.</p>
+</header>
+
+<!-- ─── THE SUBJECT ─── -->
+<section>
+  <div class="reveal">
+    <div class="section-label">01 — The Subject</div>
+    <h2 class="section-title">Inside Look at MTC</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="body-text reveal">
+    <p>Want to learn more about one of Australia's flagship theatre companies? Curious about what happens behind the scenes before the curtain goes up?</p>
+    <p>This subject provides an inside look at the <span class="highlight">art, craft and culture</span> of Melbourne Theatre Company (MTC). You will explore the work of playwrights, directors, actors, designers, producers and critics, and develop your own voice as an audience member and critical thinker.</p>
+    <p>By the end of the semester, you should be able to use theatre terminology with confidence, recognise the contributions of the creative team behind a production, and engage critically with live performance.</p>
+    <p>The subject is delivered through a combination of in-person and Zoom tutorials, weekly Canvas modules featuring curated videos and web-based research tasks, and peer engagement through FeedbackFruits. You will also attend two MTC productions at Southbank Theatre. No theatre subject is complete without the live experience. The only prerequisite is a willingness to engage.</p>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">Important — Ticketing</div>
+    <div class="callout-text">Tickets will be made available shortly after the subject census date. Please wait for instructions before making any arrangements.</div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ─── INTENDED LEARNING OUTCOMES ─── -->
+<section>
+  <div class="reveal">
+    <div class="section-label">02 — Intended Learning Outcomes</div>
+    <h2 class="section-title">What you will be able to do</h2>
+    <div class="section-divider"></div>
+    <p class="body-text" style="margin-bottom: 1rem;">On successful completion of this subject, you should be able to:</p>
+  </div>
+
+  <div class="ilos-grid">
+    <div class="ilo-item reveal">
+      <div class="ilo-number">1</div>
+      <div class="ilo-text">Use theatrical terms to analyse and evaluate methods of artistic and intellectual expression through theatre</div>
+    </div>
+    <div class="ilo-item reveal">
+      <div class="ilo-number">2</div>
+      <div class="ilo-text">Recognise and identify the contributions of key members of the collaborative team who create and perform theatre</div>
+    </div>
+    <div class="ilo-item reveal">
+      <div class="ilo-number">3</div>
+      <div class="ilo-text">Identify and explain basic social, cultural and political influences on theatre in an Australian context</div>
+    </div>
+    <div class="ilo-item reveal">
+      <div class="ilo-number">4</div>
+      <div class="ilo-text">Critically examine theatrical events using opinion, taste and cultural awareness</div>
+    </div>
+    <div class="ilo-item reveal">
+      <div class="ilo-number">5</div>
+      <div class="ilo-text">Identify basic elements of stagecraft and the techniques used for staging theatre</div>
+    </div>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ─── ASSESSMENT ─── -->
+<section>
+  <div class="reveal">
+    <div class="section-label">03 — Assessment</div>
+    <h2 class="section-title">How you will be assessed</h2>
+    <div class="section-divider"></div>
+    <p class="body-text" style="margin-bottom: 0;">Three tasks designed to build progressively across the semester.</p>
+  </div>
+
+  <div class="assessment-grid">
+
+    <!-- MTC Quiz -->
+    <div class="assessment-card reveal" onclick="toggleCard(this)">
+      <div class="assessment-header">
+        <div class="assessment-weight-block">
+          <div class="assessment-weight">20<span style="font-size:1.1rem;">%</span></div>
+        </div>
+        <div class="assessment-header-text">
+          <div class="assessment-name">MTC Quiz</div>
+          <div class="assessment-timing">Due Friday 21 August</div>
+        </div>
+        <div class="assessment-toggle"></div>
+      </div>
+      <div class="assessment-body">
+        <div class="assessment-body-inner">
+          <div class="assessment-desc">
+            <p>An online quiz on theatre concepts and terminology drawn from the first four modules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Oral Assessment -->
+    <div class="assessment-card reveal" onclick="toggleCard(this)">
+      <div class="assessment-header">
+        <div class="assessment-weight-block">
+          <div class="assessment-weight">50<span style="font-size:1.1rem;">%</span></div>
+        </div>
+        <div class="assessment-header-text">
+          <div class="assessment-name">Interactive Oral Assessment</div>
+          <div class="assessment-timing">Week 12 · Wed 21 October, 5–7pm · In Person</div>
+        </div>
+        <div class="assessment-toggle"></div>
+      </div>
+      <div class="assessment-body">
+        <div class="assessment-body-inner">
+          <div class="assessment-desc">
+            <p>A comparative oral review of both MTC productions, delivered as a group discussion. In advance, you submit a 600-word written overview outlining your critical position on both shows. This is not a formal essay but a structured preparation document to anchor your contribution to the discussion.</p>
+            <p>In both the written overview and the oral discussion you should: discuss each production in terms of your own personal response and what you felt the makers were trying to achieve; demonstrate understanding of theatrical concepts and the roles of different creatives; draw comparisons between the two productions; and move beyond simple opinion into why certain choices were made and what the experience of watching each production was actually like.</p>
+            <p>The discussion is a genuine conversation, not a presentation. Listening and responding to your peers is part of what is being assessed.</p>
+          </div>
+          <div class="assessment-note">Academic tone and referencing conventions are not appropriate — this is your response as an informed audience member. Examples of theatre reviews and critical discussions are provided across Modules 6 to 8. An assessment rubric is available on the subject page.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Journal -->
+    <div class="assessment-card reveal" onclick="toggleCard(this)">
+      <div class="assessment-header">
+        <div class="assessment-weight-block">
+          <div class="assessment-weight">30<span style="font-size:1.1rem;">%</span></div>
+        </div>
+        <div class="assessment-header-text">
+          <div class="assessment-name">Research Journal</div>
+          <div class="assessment-timing">Full journal due Friday 6 November · Two draft checkpoints</div>
+        </div>
+        <div class="assessment-toggle"></div>
+      </div>
+      <div class="assessment-body">
+        <div class="assessment-body-inner">
+          <div class="assessment-desc">
+            <p>Throughout the semester, the videos you watch in each module contain embedded provocations: questions and prompts designed to spark reflection and inquiry. These provocations are your Research Journal entry points.</p>
+            <p>You will develop four journal entries in response to these provocations, drawing on a combination of curated videos and your own web-based research. Drafts are submitted at two checkpoints — Checkpoint 1 (Entries 1 and 2) on Friday 28 August, and Checkpoint 2 (Entries 3 and 4) on Friday 9 October — with your complete polished journal due during the assessment period. At each checkpoint you receive feedback from your peers through FeedbackFruits and, provided you submit on time, from your tutor as well.</p>
+            <p>Your journal can take many forms. Written entries are welcome, but so are creative responses: video essays, sketches, photographs, performance documentation, or any other form that engages seriously with the material.</p>
+          </div>
+          <div class="assessment-note">Creative and theatrical approaches that demonstrate genuine intellectual engagement will be recognised in your mark. Your final mark reflects the quality of your entries and your sustained engagement with the draft-and-feedback cycle with your peers throughout the semester.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="assessment-hint reveal">Click each assessment to read more</p>
+</section>
+
+<div class="full-divider"></div>
+
+<!-- ─── TIMETABLE ─── -->
+<section>
+  <div class="reveal">
+    <div class="section-label">04 — Timetable</div>
+    <h2 class="section-title">When and how we meet</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="timetable-grid reveal">
+    <div class="timetable-item">
+      <div class="timetable-label">Full Timetable</div>
+      <div class="timetable-value">Subject Homepage</div>
+      <div class="timetable-detail">Available on the subject homepage</div>
+    </div>
+    <div class="timetable-item">
+      <div class="timetable-label">Tutorials</div>
+      <div class="timetable-value">Wednesdays, 5–7pm · In person &amp; Zoom</div>
+      <div class="timetable-detail">Four tutorials across the semester — two in person at Southbank, two via Zoom</div>
+    </div>
+    <div class="timetable-item">
+      <div class="timetable-label">Weekly Engagement</div>
+      <div class="timetable-value">Canvas &amp; FeedbackFruits</div>
+      <div class="timetable-detail">Video reflections every week. Research Journal drafts submitted at two checkpoints (28 Aug &amp; 9 Oct)</div>
+    </div>
+    <div class="timetable-item">
+      <div class="timetable-label">Interactive Oral Assessment</div>
+      <div class="timetable-value">Wed 21 October · Week 12 · In Person</div>
+      <div class="timetable-detail">Founders Room, Southbank Campus, 5–7pm. All IOA groups assessed on this date</div>
+    </div>
+    <div class="timetable-item">
+      <div class="timetable-label">Productions</div>
+      <div class="timetable-value">Southbank Theatre</div>
+      <div class="timetable-detail">Two MTC productions. Ticketing details issued after the census date</div>
+    </div>
+    <div class="timetable-item">
+      <div class="timetable-label">Research Journal Drafts</div>
+      <div class="timetable-value">Two Checkpoints</div>
+      <div class="timetable-detail">Two checkpoints — Friday 28 August and Friday 9 October. Confirmed in the weekly modules</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p>DRAM10026 · Inside Look at Melbourne Theatre Company · University of Melbourne · Semester 2, 2026</p>
+</footer>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Iframe safety net: if the observer never fires (common when embedded),
+  // force everything visible so nothing stays hidden.
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+  }, 900);
+  if (window.self !== window.top) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  // Toggle assessment cards
+  function toggleCard(card) {
+    const wasActive = card.classList.contains('active');
+    document.querySelectorAll('.assessment-card').forEach(c => c.classList.remove('active'));
+    if (!wasActive) {
+      card.classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>
