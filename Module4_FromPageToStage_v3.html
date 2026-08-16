@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — MTC Production Processes: From Page to Stage</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f0eb;
+    --warm-white: #faf7f2;
+    --cream: #e8e0d4;
+    --mtc-blue: #1a2a4a;
+    --mtc-gold: #c8a45c;
+    --mtc-copper: #b87333;
+    --stage-red: #8b2500;
+    --muted-sage: #7a8b6f;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-light: #888;
+    --divider: #d4cdc4;
+    --unimelb: #004EA8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--text-primary);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 3rem 3.5rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200, 164, 92, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .module-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .module-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--mtc-copper);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--mtc-blue);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--mtc-copper);
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .content-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 4rem;
+  }
+
+  /* ─── SECTION HEADING ─── */
+  .section-marker {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-marker::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--mtc-copper);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--mtc-blue);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  /* ─── PROSE ─── */
+  .prose {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text-primary);
+  }
+
+  .prose p {
+    margin-bottom: 1.3rem;
+  }
+
+  .prose p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    margin: 2.5rem 0;
+    padding: 2rem 0 2rem 2rem;
+    border-left: 3px solid var(--mtc-gold);
+    position: relative;
+  }
+
+  .pull-quote blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--mtc-blue);
+  }
+
+  .pull-quote .attribution {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-top: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--divider);
+    margin: 3rem 0;
+  }
+
+  /* ─── PAUSE & CONSIDER (interactive intervention) ─── */
+  .pause-consider {
+    margin: 2.5rem 0;
+    padding: 1.8rem 2rem;
+    background: linear-gradient(135deg, rgba(26, 42, 74, 0.04) 0%, rgba(200, 164, 92, 0.06) 100%);
+    border-left: 3px solid var(--mtc-copper);
+    border-radius: 0 4px 4px 0;
+    position: relative;
+  }
+
+  .pause-consider::before {
+    content: 'Pause & Consider';
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    display: block;
+    margin-bottom: 0.9rem;
+  }
+
+  .pause-consider p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--mtc-blue);
+    font-weight: 400;
+  }
+
+  .pause-consider p + p {
+    margin-top: 0.7rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-style: italic;
+  }
+
+  /* ─── REHEARSAL ROADMAP ─── */
+  .roadmap {
+    margin: 3rem 0;
+    padding: 2.5rem 0;
+  }
+
+  .roadmap-intro {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+  }
+
+  .roadmap-track {
+    position: relative;
+    padding-left: 2.8rem;
+  }
+
+  /* The vertical line */
+  .roadmap-track::before {
+    content: '';
+    position: absolute;
+    left: 0.55rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: linear-gradient(to bottom,
+      var(--mtc-gold) 0%,
+      var(--mtc-copper) 40%,
+      var(--stage-red) 100%
+    );
+  }
+
+  .roadmap-stage {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--warm-white);
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .roadmap-stage:last-child {
+    margin-bottom: 0;
+  }
+
+  .roadmap-stage:hover {
+    border-color: var(--mtc-gold);
+    box-shadow: 0 2px 12px rgba(200, 164, 92, 0.1);
+  }
+
+  /* The dot on the track */
+  .roadmap-stage::before {
+    content: '';
+    position: absolute;
+    left: -2.25rem;
+    top: 1.6rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--mtc-gold);
+    background: var(--paper);
+    z-index: 1;
+  }
+
+  .roadmap-stage:first-child::before {
+    border-color: var(--mtc-gold);
+    background: var(--mtc-gold);
+  }
+
+  .roadmap-stage:last-child::before {
+    border-color: var(--stage-red);
+    background: var(--stage-red);
+  }
+
+  .roadmap-stage-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 0.5rem;
+  }
+
+  .roadmap-stage h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--mtc-blue);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .roadmap-stage p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .roadmap-stage .practitioner-voice {
+    margin-top: 0.8rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--divider);
+    font-size: 0.82rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--text-light);
+  }
+
+  .roadmap-stage .practitioner-voice strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  /* ─── THINKING PROMPT CARDS (replacing concept cards) ─── */
+  .thinking-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .thinking-card {
+    background: var(--warm-white);
+    border: 1px solid var(--divider);
+    border-radius: 4px;
+    padding: 1.8rem;
+    transition: border-color 0.3s ease;
+    position: relative;
+  }
+
+  .thinking-card:hover {
+    border-color: var(--mtc-copper);
+  }
+
+  .thinking-card-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 0.7rem;
+  }
+
+  .thinking-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--mtc-blue);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .thinking-card .scenario {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 0.9rem;
+  }
+
+  .thinking-card .prompt {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--mtc-blue);
+    font-weight: 500;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--divider);
+  }
+
+  /* ─── BRIDGE / TRANSITION SECTION ─── */
+  .bridge {
+    background: var(--mtc-blue);
+    color: var(--warm-white);
+    padding: 3rem 2rem;
+    margin: 3rem -2rem;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bridge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(200, 164, 92, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bridge-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 660px;
+  }
+
+  .bridge .section-marker {
+    color: var(--mtc-gold);
+  }
+
+  .bridge .section-marker::before {
+    background: var(--mtc-gold);
+  }
+
+  .bridge .section-title {
+    color: var(--warm-white);
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .bridge p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.85);
+    margin-bottom: 1rem;
+  }
+
+  .bridge p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ─── ARRIVAL TASK ─── */
+  .arrival-task {
+    margin: 3rem 0;
+    padding: 2.2rem 2rem;
+    background: var(--mtc-blue);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .arrival-task::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom right, rgba(200, 164, 92, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .arrival-task-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .arrival-task-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mtc-gold);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .arrival-task-label::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--mtc-gold);
+  }
+
+  .arrival-task h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--warm-white);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .arrival-task p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.85);
+    margin-bottom: 0.8rem;
+  }
+
+  .arrival-task ol {
+    list-style: none;
+    counter-reset: arrival;
+    margin: 1rem 0;
+    padding: 0;
+  }
+
+  .arrival-task ol li {
+    counter-increment: arrival;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: rgba(250, 247, 242, 0.85);
+    margin-bottom: 0.6rem;
+    padding-left: 1.8rem;
+    position: relative;
+  }
+
+  .arrival-task ol li::before {
+    content: counter(arrival);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--mtc-gold);
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    font-weight: 700;
+  }
+
+  .arrival-task .note {
+    font-size: 0.82rem;
+    color: rgba(250, 247, 242, 0.6);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+
+  /* ─── SOURCES SECTION ─── */
+  .sources {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--divider);
+  }
+
+  .sources-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.8rem;
+  }
+
+  /* Book feature with cover */
+  .source-book-feature {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .source-book-cover {
+    flex-shrink: 0;
+    width: 140px;
+  }
+
+  .source-book-cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+  }
+
+  .source-book-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .source-book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--mtc-blue);
+    line-height: 1.3;
+  }
+
+  .source-book-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .source-book-author {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mtc-copper);
+    margin-bottom: 1rem;
+  }
+
+  .source-book-description {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+  }
+
+  .source-book-access {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  /* Detailed source references */
+  .source-details-wrapper {
+    margin-top: 0;
+  }
+
+  .source-details-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+  }
+
+  .source-detail-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .source-detail-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .source-detail {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .source-detail span.page {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-light);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { padding: 4rem 1.5rem 2.5rem; }
+    .content-wrapper { padding: 2.5rem 1.5rem 3rem; }
+    .thinking-grid { grid-template-columns: 1fr; }
+    .bridge { margin: 2.5rem -1.5rem; padding: 2.5rem 1.5rem; }
+    .pull-quote { padding-left: 1.5rem; }
+    .roadmap-track { padding-left: 2.2rem; }
+    .roadmap-stage::before { left: -1.65rem; }
+    .source-book-feature { flex-direction: column; gap: 1.2rem; }
+    .source-book-cover { width: 110px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="module-label">Module 4</div>
+    <h1>From Page <em>to</em> Stage</h1>
+    <p class="hero-subtitle">How a written script becomes a living production through the collaborative work of directors, actors, designers, and stage managers.</p>
+  </div>
+</section>
+
+<!-- ─── MAIN CONTENT ─── -->
+<div class="content-wrapper">
+
+  <!-- Opening section -->
+  <div class="section-marker">The Rehearsal Room</div>
+  <h2 class="section-title">Theatre is made by people, together</h2>
+
+  <div class="prose">
+    <p>When you watch a finished production at MTC, what you see on stage is the result of weeks of collaborative work by dozens of people, most of whom the audience will never see. It is easy to assume that a play arrives fully formed from the mind of a single visionary, whether the playwright who wrote it or the director who staged it, but the reality is far more interesting than that. A theatre production is built collectively, through a process of shared inquiry, negotiation, and creative problem-solving that unfolds over time in a room where no single person holds all the answers.</p>
+
+    <p>The rehearsal room is where this collective work happens. It is a dedicated space, usually a large, bare room, in which the company gathers for several weeks before a production opens. What takes place there is not simply a matter of actors learning their lines and being told where to stand. It is a sustained creative process in which the director, actors, designers, stage managers, and other collaborators gradually discover, together, what this particular production of this particular play will be. The written script is the starting point, but the journey from page to stage involves hundreds of interpretive and practical decisions that no playwright can anticipate and no single person can make alone.</p>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>'I run a rehearsal room based on trust, people have to get on with what they need to do. It's collaborative and democratic. I try to be that way. It doesn't always happen. But the buck does stop with me, and that terrifies me.'</blockquote>
+    <div class="attribution">Jenny Sealey, Artistic Director of Graeae Theatre, a pioneering UK company led by deaf and disabled artists</div>
+  </div>
+
+  <!-- PAUSE & CONSIDER #1 -->
+  <div class="pause-consider">
+    <p>Sealey describes her rehearsal room as collaborative and democratic — but also says the buck stops with her, and that this terrifies her. Think about a group project you have worked on, in any context. Was there a moment when someone had to make a final call, even though the work was meant to be shared? How did that feel for the group?</p>
+    <p>Hold this tension in mind as you read on. It runs through everything that follows.</p>
+  </div>
+
+  <div class="prose">
+    <p>That tension Sealey describes, between genuine collaboration and the fact that someone must ultimately take responsibility for the finished work, sits at the heart of how professional theatre operates. The rehearsal room is also shaped by material realities: opening night has a fixed date, budgets are finite, and the production must be ready for a paying audience whether or not every creative question has been resolved. As theatre scholar Ric Knowles has observed, any creative choices made in rehearsal are bounded by the economic and commercial conditions that surround the work. Directors must balance their artistic ambitions with the practical demand to open the product on time.</p>
+
+    <p>Within those constraints, though, the best rehearsal rooms operate as genuinely collaborative creative spaces. Kate Wasserberg, an English director whose rehearsal processes have been the subject of detailed scholarly observation, describes her approach as rooted in practicality and what she calls love: an unconditional investment in the actors, the characters, and the play itself, so that performers feel free to take creative risks rather than defending safe choices. She staunchly defends even the most morally questionable characters, encouraging her actors to become their character's champion rather than their judge, because an actor who is on their character's side can access depths that self-conscious distance cannot reach.</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- The director as facilitator -->
+  <div class="section-marker">Collaborative Dynamics</div>
+  <h2 class="section-title">The director as facilitator, not dictator</h2>
+
+  <div class="prose">
+    <p>One of the most common misconceptions about theatre is that the director functions like a film director: an all-powerful figure who controls every detail of what happens on stage. In practice, the relationship is much more nuanced. The director's job is closer to that of a chairperson or facilitator, someone who sets a tone and direction for the work, curates the ideas that emerge from the room, and makes final decisions when the company reaches a fork in the road, but who relies fundamentally on the expertise, instincts, and creative contributions of everyone else in the process.</p>
+
+    <p>Michelle Terry, Artistic Director of Shakespeare's Globe in London, has argued that the traditional rehearsal model, where the focus and point of view come from one end of the room and rest on the director's shoulders alone, does not always serve the work or the people making it. Terry advocates for shifting the focus back onto the play itself, so that the script becomes the shared reference point around which all contributions orbit, rather than the director's interpretation becoming the only lens through which everyone else must work. The strongest idea in the telling of the story should be the one that is pursued, regardless of who in the room it comes from.</p>
+
+    <p>Ivo van Hove, the Belgian director who leads Internationaal Theater Amsterdam and is one of the most influential theatre directors working today, likens his preparation to a small backpack. He carries ideas with him as a safety net, something to draw on if the company gets into trouble or if a question arises, but not as a predetermined blueprint to impose on the room. For Van Hove, the director who walks in needing to display that they are the boss of the production is missing the point. He prefers to put the team forward and position himself as part of it, because a team gives warmth, loyalty, and security, and within that security, genuine creative risk becomes possible.</p>
+
+    <p>This does not mean that rehearsal rooms are leaderless or chaotic. Directors bring extensive preparation, a deep understanding of the text, and a clear sense of the world they want the production to inhabit. But the most effective directors seem to share a willingness to be surprised by what their collaborators bring, and a recognition that the actors, designers, and stage managers each possess forms of knowledge and creative intelligence that the director alone cannot replicate. As Wasserberg puts it: being genuinely curious about what other people think is important, as is believing that the work will be better if you use the talent and ability in the room.</p>
+  </div>
+
+  <!-- PAUSE & CONSIDER #2 -->
+  <div class="pause-consider">
+    <p>Van Hove talks about his preparation as a "small backpack" — ideas to draw on, not a blueprint to impose. Think about the difference between those two approaches: arriving with a plan to execute, versus arriving with resources to offer. Where have you seen each approach work (or fail) in your own experience of group work, sport, music, or any collaborative endeavour?</p>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Rough drafts toward a form -->
+  <div class="section-marker">Process</div>
+  <h2 class="section-title">Rough drafts toward a finished form</h2>
+
+  <div class="prose">
+    <p>A theatre production does not arrive fully formed on the first day. It moves through stages, much like drafting an essay or developing a research project, where early work is deliberately rough and exploratory, and precision comes later. Matthew Xia, an English director and former Artistic Director of the Manchester Royal Exchange's Exchange Studio, compares the process to a swimming pool: you walk from the shallow end to the deep end over the course of several weeks, honing as you go. What begins as a badly drawn circle on a piece of paper ends up, ideally, looking like something far more accomplished.</p>
+
+    <p>In the first days of rehearsal, many directors avoid locking anything in. They read through the play quickly, not to produce a polished performance, but to give the whole company a shared sense of the story from beginning to end. Wasserberg describes wanting to solve all the practical problems first, working through the play quickly in the opening week to establish a rough physical staging, getting everyone on their feet by the afternoon of the second day, then returning to deepen and detail the work in subsequent weeks. She calls each pass through a scene a new "draft", deliberately borrowing the language of writing to signal that nothing is fixed yet and everything can be reworked. Van Hove begins with a single reading, an introduction to the visual concept, and a general sense of the world the company will inhabit, then starts working chronologically through the scenes from the very next day, because he wants the rehearsal process to mirror the unfolding quality of life itself, where you know where you have to be but not what will happen when you get there.</p>
+
+    <p>As the weeks progress, the work moves from content to form: from understanding what the play is about and what the characters need, to shaping how all of that will be communicated to an audience through specific physical choices, vocal qualities, design elements, and the overall rhythm and pace of the production. Robert Marsden, the theatre scholar whose research underpins this page, describes a progression through several stages: early stumble-throughs, where the company pieces scenes together roughly and unevenly; stagger-throughs, which aim for greater continuity; and finally full run-throughs, where the entire play is performed in real time with as many production elements as possible in place. Each stage builds the actors' confidence and reveals what still needs attention before an audience arrives. The important thing, as Kirstie Davis, a director working in English regional theatre, notes, is not to push for perfection too early: if the actors are doing nothing but battling against something overcomplicated, there is no point, and she will throw it away and simplify.</p>
+  </div>
+
+  <!-- ─── REHEARSAL ROADMAP ─── -->
+  <div class="roadmap">
+    <div class="section-marker">Roadmap</div>
+    <h2 class="section-title">The journey from first read to opening night</h2>
+    <p class="roadmap-intro">The following is a simplified map of how a typical professional rehearsal process unfolds. Not every company follows this sequence exactly — directors adapt to their own methods, the needs of the play, and the constraints of the production — but the general arc from exploration to precision is remarkably consistent.</p>
+
+    <div class="roadmap-track">
+
+      <div class="roadmap-stage">
+        <div class="roadmap-stage-label">Week 1 · Days 1–2</div>
+        <h4>First read-through and table work</h4>
+        <p>The full company gathers for the first time. The play is read aloud — not performed, but spoken — to give everyone a shared sense of the whole story. The director may introduce the design concept, and the company discusses the world of the play: its setting, themes, relationships, and questions.</p>
+        <div class="practitioner-voice"><strong>Van Hove:</strong> A single reading, an introduction to the visual world, and then straight into working the scenes from the next day — because life unfolds, and so should rehearsal.</div>
+      </div>
+
+      <div class="roadmap-stage">
+        <div class="roadmap-stage-label">Week 1 · Days 3–5</div>
+        <h4>On your feet: rough blocking</h4>
+        <p>Actors move from the table to the rehearsal floor. The director works through scenes quickly, establishing a rough physical shape — who enters where, who sits, who moves — without worrying about polish. The goal is to solve practical problems and give everyone a physical sense of the play's geography.</p>
+        <div class="practitioner-voice"><strong>Wasserberg:</strong> Get everyone on their feet by the afternoon of day two. Solve the practical problems first. Each pass through a scene is a new "draft" — nothing is fixed yet.</div>
+      </div>
+
+      <div class="roadmap-stage">
+        <div class="roadmap-stage-label">Weeks 2–3</div>
+        <h4>Deepening: scene work and character exploration</h4>
+        <p>The company returns to each scene in detail. Actors explore their characters' motivations, relationships, and choices. The director asks questions, tests alternatives, and refines the staging. Design elements — costumes, props, sound — begin to be integrated, ideally with designers present in the room.</p>
+      </div>
+
+      <div class="roadmap-stage">
+        <div class="roadmap-stage-label">Week 3–4</div>
+        <h4>Stumble-throughs and stagger-throughs</h4>
+        <p>The company begins running larger sections of the play, then the whole play, without stopping. Early attempts — stumble-throughs — are rough and uneven; actors may forget lines or miss cues. Stagger-throughs aim for greater continuity. Each run reveals what works and what still needs attention.</p>
+        <div class="practitioner-voice"><strong>Xia:</strong> You walk from the shallow end of the pool to the deep end. What begins as a badly drawn circle ends up looking like something far more accomplished.</div>
+      </div>
+
+      <div class="roadmap-stage">
+        <div class="roadmap-stage-label">Final week</div>
+        <h4>Technical and dress rehearsals</h4>
+        <p>The production moves from the rehearsal room into the theatre itself. Lighting, sound, set changes, and costumes are integrated in technical rehearsals. Dress rehearsals simulate performance conditions. The director shapes the overall rhythm, pace, and flow of the production as a unified whole.</p>
+        <div class="practitioner-voice"><strong>Davis:</strong> If the actors are battling against something overcomplicated, throw it away and simplify. The production must be ready to meet its audience.</div>
+      </div>
+
+      <div class="roadmap-stage">
+        <div class="roadmap-stage-label">Opening</div>
+        <h4>The audience arrives</h4>
+        <p>The work meets the public for the first time. Everything the company has built — every choice negotiated, tested, revised, and refined over weeks of collaborative work — is now experienced live, in real time, by an audience whose presence changes everything.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAUSE & CONSIDER #3 -->
+  <div class="pause-consider">
+    <p>Look at the roadmap above. Notice how the process moves from deliberate roughness to increasing precision — and how each stage has a different purpose. When you attend your first MTC production later this semester, what you see on stage will be the product of this entire journey. Is there a stage in this process that surprises you, or that works differently from how you imagined theatre was made?</p>
+  </div>
+
+  <!-- Thinking prompt cards (replacing concept cards) -->
+  <div class="thinking-grid">
+    <div class="thinking-card">
+      <div class="thinking-card-label">Thinking Prompt</div>
+      <h3>Who owns the idea?</h3>
+      <div class="scenario">In rehearsal for <em>Around the World in 80 Days</em>, director Sarah Heskins gave four pairs of actors fifteen minutes to come up with their own elephant using a kit of props and costumes. One group discovered that an old Inverness cape could be twisted to make ears and a trunk. It became the production's solution.</div>
+      <div class="prompt">Heskins says that ideally, the person who invents something does not own it — they contribute it to the collective endeavour. What does that require of the people in the room? What would make it difficult?</div>
+    </div>
+    <div class="thinking-card">
+      <div class="thinking-card-label">Thinking Prompt</div>
+      <h3>When less preparation is more</h3>
+      <div class="scenario">Van Hove prepares a "small backpack" of ideas. Wasserberg arrives with questions rather than answers. Both are highly successful directors, and both describe deliberately holding back from imposing a fixed plan.</div>
+      <div class="prompt">Can you think of a context in your own life — study, work, sport, creative practice — where arriving less prepared actually produced a better outcome? What made that possible?</div>
+    </div>
+    <div class="thinking-card">
+      <div class="thinking-card-label">Thinking Prompt</div>
+      <h3>The sound you don't see</h3>
+      <div class="scenario">In Katie Mitchell's <em>Women of Troy</em>, sound designer Gareth Fry built the sounds of a city being destroyed — people dying, buildings collapsing — and played them in the rehearsal room while the actors performed. The offstage world became something the actors could react to physically, not just imagine.</div>
+      <div class="prompt">Think about a film or show where the sound shaped your emotional response as powerfully as anything you could see. What was the sound doing that the image alone could not?</div>
+    </div>
+    <div class="thinking-card">
+      <div class="thinking-card-label">Thinking Prompt</div>
+      <h3>A small, precise detail</h3>
+      <div class="scenario">Set designer Max Jones suggested that an actor count out bullets during a quiet conversation in <em>Close Quarters</em>. The visual image of an implement of death held casually during a discussion about soldiers' careers amplified the psychological tension in a way that dialogue alone could not.</div>
+      <div class="prompt">What is it about the contrast — the ordinariness of the action versus the weight of the object — that creates tension? Can you think of an equivalent moment from something you have watched?</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Design integration -->
+  <div class="section-marker">Scenography</div>
+  <h2 class="section-title">Designers in the room</h2>
+
+  <div class="prose">
+    <p>One of the less visible but most important aspects of collaboration in professional theatre is the relationship between what happens in the rehearsal room and the work of the design team. Set designers, costume designers, lighting designers, and sound designers all contribute to the world the audience eventually sees and hears, and the quality of their integration into the rehearsal process can make the difference between a production that feels seamless and one where the design feels imposed from outside.</p>
+
+    <p>Gareth Fry, a leading sound designer who has worked extensively at the National Theatre in London, including on Katie Mitchell's acclaimed production of <em>Women of Troy</em> (2007), argues that sound design often ends up feeling tacked on if it is introduced too late in the process, after the actors have already established their rhythms and dynamics without it. By developing the sound design in the rehearsal room as the actors develop their performances, the two can be created together in a relationship of genuine exchange, rather than one being fitted awkwardly around the other. In <em>Women of Troy</em>, the offstage world the characters hear is their entire city being torn apart, people dying and being shipped off as slaves. Having those sounds present in rehearsals allowed the actors to feel that external pressure viscerally and respond to it in real time, rather than having to imagine it and then adjust when the sound arrived weeks later in the technical rehearsal.</p>
+
+    <p>The same principle applies to set and costume. Max Jones, a set designer who works regularly in UK subsidised theatre, describes a moment during rehearsals for a production called <em>Close Quarters</em> in which he suggested that an actor count out bullets during a quiet conversation scene. The visual image of an implement of death held casually during a discussion about young soldiers' careers and lives amplified the psychological tension of the moment in a way that neither the dialogue nor the staging alone could achieve. Jones describes this as the designer's language: finding visual signifiers, sometimes on a small and precise scale, that amplify the psychology of a moment. That kind of creative contribution is possible only when designers are present in the room and treated as full creative collaborators, not service providers who deliver a finished set on the day of the technical rehearsal.</p>
+
+    <p>Sarah Heskins, who served as Artistic Director of the New Vic Theatre in Staffordshire, takes this collaborative ethos further still. During rehearsals for <em>Around the World in 80 Days</em>, when the script called for a journey by elephant, the designer provided a kit of props and costumes for the actors to experiment with, and Heskins gave four pairs of actors fifteen minutes to come back with their own elephant. One group discovered that an old Inverness cape could be twisted and turned to make ears and a trunk, and the result was so striking in its simplicity that it became the solution for the production. As Heskins reflects, ideally everything in the creative process should work like that: through shared offers, where the person who invents something does not necessarily own it, but contributes it to the collective endeavour.</p>
+  </div>
+
+  <!-- Bridge section -->
+  <div class="bridge">
+    <div class="bridge-inner">
+      <div class="section-marker">Connecting to MTC</div>
+      <h2 class="section-title">Watching the videos this week</h2>
+      <p>The videos for this module introduce you to MTC practitioners who do exactly the work described on this page. You will hear from directors, a playwright, actors, set designers, and lighting designers, each describing their part in the collaborative process of bringing a production from page to stage.</p>
+      <p>As you watch, pay attention to how each person talks about their relationship to the others in the process. Notice what they say about when and how decisions get made, who has input, and what happens when things do not go as planned. The ideas on this page — and the rehearsal roadmap above — should help you listen with sharper ears and notice things you might otherwise have missed.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Carrying forward -->
+  <div class="section-marker">Carrying Forward</div>
+  <h2 class="section-title">What to listen for in this week's videos</h2>
+
+  <div class="prose">
+    <p>Understanding theatre as a collaborative art form changes the way you watch it. When you attend MTC productions live later this semester, you will not simply be watching actors perform a script. You will be watching the visible surface of a long, complex, collaborative process in which dozens of creative decisions have been negotiated, tested, revised, and refined. The set you see, the lighting that shapes the mood of each scene, the way an actor pauses before a line or crosses the stage at a particular moment: none of these are accidental. Each is the product of collaborative work in a rehearsal room, shaped by the contributions of people whose names you may only glimpse in the programme.</p>
+  </div>
+
+  <!-- PAUSE & CONSIDER #4 — video-directed -->
+  <div class="pause-consider">
+    <p>As you watch this week's MTC practitioner videos, listen for echoes of what you have read here. When a director, designer, or actor describes how they work, try to place them on the rehearsal roadmap above. At what stage of the process are they describing their contribution? And notice the language they use about collaboration: do they talk about their work as something they do alone, or as something that emerges from the room?</p>
+  </div>
+
+  <!-- Sources section -->
+  <div class="sources">
+    <div class="sources-label">Sources</div>
+
+    <div class="source-book-feature">
+      <div class="source-book-cover">
+        <img src="data:image/jpeg;base64,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" alt="Cover of Inside the Rehearsal Room by Robert Marsden, featuring a red door opening onto a colourful interior against a yellow background">
+      </div>
+      <div class="source-book-info">
+        <div class="source-book-title">Inside the Rehearsal Room</div>
+        <div class="source-book-subtitle">Process, Collaboration and Decision-Making</div>
+        <div class="source-book-author">Robert Marsden</div>
+        <p class="source-book-description">All of the ideas and practitioner voices on this page are drawn from Marsden's detailed study of how professional directors, actors, and designers work together to build a production. The book is based on extensive interviews and first-hand observation of rehearsal processes across UK theatre.</p>
+        <p class="source-book-access">London: Methuen Drama, 2022. Available digitally through the University of Melbourne Library via Bloomsbury Collections.</p>
+      </div>
+    </div>
+
+    <div class="source-details-wrapper">
+      <div class="source-details-label">Where to find what's on this page</div>
+
+      <div class="source-detail-group">
+        <div class="source-detail-heading">Theatre is made by people, together</div>
+        <div class="source-detail">
+          Jenny Sealey on trust and collaboration <span class="page">p. 89</span> · Ric Knowles on economic conditions shaping creative choices <span class="page">pp. 89–90</span> · Kate Wasserberg on practicality, love, and defending characters <span class="page">pp. 92–93</span>
+        </div>
+      </div>
+
+      <div class="source-detail-group">
+        <div class="source-detail-heading">The director as facilitator, not dictator</div>
+        <div class="source-detail">
+          Michelle Terry on shifting focus onto the play <span class="page">p. 94</span> · Ivo van Hove on the backpack and the team <span class="page">pp. 95, 100</span> · Wasserberg on genuine curiosity and using the room's talent <span class="page">pp. 94–95</span>
+        </div>
+      </div>
+
+      <div class="source-detail-group">
+        <div class="source-detail-heading">Rough drafts toward a finished form</div>
+        <div class="source-detail">
+          Matthew Xia on the swimming pool analogy <span class="page">p. 123</span> · Wasserberg on solving practical problems in week one, drafting scenes, and getting on feet by day two <span class="page">pp. 99–102</span> · Van Hove on beginning chronologically <span class="page">pp. 98–99</span> · Kirstie Davis on simplifying when actors struggle <span class="page">p. 140</span> · Marsden's framework of stumble-throughs, stagger-throughs, and run-throughs <span class="page">pp. 140–141</span>
+        </div>
+      </div>
+
+      <div class="source-detail-group">
+        <div class="source-detail-heading">Designers in the room</div>
+        <div class="source-detail">
+          Gareth Fry on sound design integration and <em>Women of Troy</em> <span class="page">pp. 116–117, 137</span> · Max Jones on visual signifiers and the bullet-counting moment in <em>Close Quarters</em> <span class="page">pp. 136–137</span> · Sarah Heskins on the elephant in <em>Around the World in 80 Days</em> <span class="page">pp. 117–118</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
