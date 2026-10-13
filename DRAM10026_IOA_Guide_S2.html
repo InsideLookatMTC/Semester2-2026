@@ -567,6 +567,51 @@
       gap: 1.2rem;
     }
   }
+
+  /* ─── MOVEMENTS ─── */
+  .movements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .movement {
+    background: var(--warm-white);
+    border-top: 3px solid var(--mtc-gold);
+    border-radius: 0 0 4px 4px;
+    padding: 1.4rem 1.3rem 1.5rem;
+  }
+  .movement-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--mtc-copper);
+    margin-bottom: 0.5rem;
+  }
+  .movement-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--mtc-blue);
+    line-height: 1.1;
+  }
+  .movement-time {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin: 0.4rem 0 0.8rem;
+  }
+  .movement-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .movements { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -585,7 +630,7 @@
   <div class="meta-bar-inner">
     <div class="meta-item">
       <span class="meta-label">Date</span>
-      <span class="meta-value">21 October</span>
+      <span class="meta-value">Wednesday 21 October, 5–7pm</span>
     </div>
     <div class="meta-item">
       <span class="meta-label">Duration</span>
@@ -593,7 +638,7 @@
     </div>
     <div class="meta-item">
       <span class="meta-label">Location</span>
-      <span class="meta-value">Founders Room, Southbank</span>
+      <span class="meta-value">Founders Room, Building 860, Southbank</span>
     </div>
     <div class="meta-item">
       <span class="meta-label">Weighting</span>
@@ -625,11 +670,38 @@
   <h2 class="section-title">A roundtable, not a presentation</h2>
 
   <div class="prose">
-    <p>The IOA brings your group together with two tutors for a structured but genuinely open discussion of the two MTC productions you have seen this semester. It is the largest assessment in the subject and the one that draws everything else together — the modules, the productions, the tutorials, the Research Journal, the pre-IOA submission.</p>
+    <p>Your group sits around a table with two tutors and talks through the two MTC productions you have all seen. It is the largest assessment in the subject, and the one that draws everything else together: the modules, the productions, the tutorials, your Research Journal and your Pre-IOA Submission.</p>
+  </div>
 
-    <p>The format has three movements. You will each have <strong>up to five minutes</strong> to speak on your assigned focus area, drawing on the considered writing you submitted the week before. Your peers will listen, take notes, and may follow up with questions. Then the tutors will open the room to a <strong>group discussion</strong> in which everyone is expected to contribute meaningfully — extending arguments, testing claims, raising the questions you brought with you, responding to what others have said.</p>
+  <div class="movements">
+    <div class="movement">
+      <div class="movement-num">1</div>
+      <div class="movement-title">Speak</div>
+      <div class="movement-time">Up to 5 minutes each</div>
+      <p class="movement-desc">You speak on your assigned focus area, comparing how it worked in both productions. Bring notes, not a script.</p>
+    </div>
+    <div class="movement">
+      <div class="movement-num">2</div>
+      <div class="movement-title">Ask</div>
+      <div class="movement-time">Your questions</div>
+      <p class="movement-desc">You bring one or two questions for the group about one or both productions. Peers listen, take notes and may follow up.</p>
+    </div>
+    <div class="movement">
+      <div class="movement-num">3</div>
+      <div class="movement-title">Discuss</div>
+      <div class="movement-time">Whole group</div>
+      <p class="movement-desc">Tutors open the room to both productions. Everyone contributes: extending arguments, testing claims, responding to each other.</p>
+    </div>
+  </div>
 
-    <p>The mark you receive is for both your individual five minutes and your contribution to the discussion that follows. The two are weighted together and assessed against the same rubric.</p>
+  <div class="key-point">
+    <div class="key-point-label">Before the day</div>
+    <p>Hand in your Pre-IOA Submission by <strong>Monday 19 October</strong>. It is the groundwork for your five minutes. Your submission and the discussion on the day both cover <strong>both productions</strong>: <em>The Jungle and the Sea</em> and <em>Eliza</em>.</p>
+  </div>
+
+  <div class="key-point">
+    <div class="key-point-label">How you are marked</div>
+    <p>One mark covers both your five minutes and your part in the discussion. Both are assessed together against the same rubric.</p>
   </div>
 
   </div>
@@ -739,11 +811,15 @@
     <div class="logistics-grid">
       <div class="logistics-item">
         <span class="logistics-label">Location</span>
-        <span class="logistics-value"><strong>Founders Room</strong><br>Southbank Campus<br>University of Melbourne</span>
+        <span class="logistics-value"><strong>Founders Room</strong><br>Elisabeth Murdoch Building (Building 860)<br>234 St Kilda Road, Southbank<br>University of Melbourne, Southbank Campus<br><br>Note that this is the Southbank building, not the Elisabeth Murdoch Building at Parkville.</span>
+      </div>
+      <div class="logistics-item">
+        <span class="logistics-label">Getting there</span>
+        <span class="logistics-value">By tram, take any tram heading south along St Kilda Road from Flinders Street Station and get off near the National Gallery of Victoria; the building is a short walk further along St Kilda Road. On foot, it is roughly a 15-minute walk from Flinders Street Station across Princes Bridge. See the <a href="https://maps.unimelb.edu.au/__data/assets/pdf_file/0003/4604403/GENERAL_Southbank_18_February_2026.pdf" target="_blank" rel="noopener">Southbank campus map</a>.</span>
       </div>
       <div class="logistics-item">
         <span class="logistics-label">Arrival</span>
-        <span class="logistics-value">Arrive <strong>ten minutes before</strong> your scheduled session. Sessions run on time and the warm-up begins promptly.</span>
+        <span class="logistics-value">Arrive by <strong>4:50pm</strong>, ten minutes before the 5pm start. Sessions run on time and the warm-up begins promptly.</span>
       </div>
       <div class="logistics-item">
         <span class="logistics-label">What to bring</span>
